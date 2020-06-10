@@ -1,5 +1,6 @@
-﻿# Version 0.01
+﻿# Version 0.02
 # Created by T. Pettijohn on 2020-06-09
+# Modified by T.Pettijohn on 2020-06-10
 # GNU GPL v2
 
 
@@ -19,7 +20,7 @@ Function Restore-SaveGames {
     }
 
 # Prepping Variables
-$SaveLoc = "$ENV:USERPROFILE\Documents\My Games\Borderlands 3\Saved\Save Games\" # Change this if you do not use the default save location
+$SaveLoc = "$ENV:USERPROFILE\Documents\My Games\Borderlands 3\Saved\SaveGames\" # Change this if you do not use the default save location
 $BackupLoc = "$ENV:USERPROFILE\Documents\BL3 Backups\" # Change this if you want to backup to a different location
 $RestoreLoc = "$ENV:USERPROFILE\Documents\My Games\Borderlands 3\Saved\" # Change this to match the SaveLoc variable, just one directory higher
 
