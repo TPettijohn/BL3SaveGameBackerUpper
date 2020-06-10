@@ -1,6 +1,6 @@
-﻿# Version 0.02
+﻿# Version 0.03
 # Created by T. Pettijohn on 2020-06-09
-# Modified by T.Pettijohn on 2020-06-10
+# Modified by T. Pettijohn on 2020-06-10
 # GNU GPL v2
 
 
@@ -46,20 +46,37 @@ Else {
 Clear-Host
 
 # Prompt user for input
-$Choice = (Read-Host "Do you want to back up or restore? (B/R)")
+$Choice = (Read-Host "Do you want to Back Up, Restore, or Clean Up? (B/R/C)")
 
 # Backup Section
 If ($Choice -ieq "B"){ 
 Write-Host ("Running the Borderlands 3 Save Game Backer Upper. Press Ctrl + C to quit.")
     While($True){
         Backup-SaveGames
-        Start-Sleep -S (60*15)
+        Start-Sleep -S (1)
     }
 }
 
 # Restore Section
 ElseIf ($Choice -ieq "R"){
-    Restore-SaveGames
+    $RestoreChoice = (Read-Host "OK to restore the most recent backup? (Y/N)")
+    If ($RestoreChoice -ieq "Y"){
+        Restore-SaveGames
+    }
+    Else{ 
+        Exit
+    }
+}
+
+
+ElseIf ($Choice -ieq "C"){
+    $CleanChoice = (Read-Host "OK to delete all except the newest 10 (Equiv. 2.5 Hours) backups? (Y/N)")
+    If ($CleanChoice -ieq "Y"){
+        Get-ChildItem -Path $BackupLoc | # Checks all files in Backup directory
+            Sort-Object -Property Name -Descending | # Sorts into newest-to-oldest
+                Select -Skip 10 | # Number of files to skip over (ie; Keep 10 newest); 10 = Latest 2.5 Hours of gametime
+                    Remove-Item # Remove the rest
+    }
 }
 
 # Input catch
@@ -67,3 +84,7 @@ Else {
     Write-Error "Sorry, you pressed the wrong button."
     Exit
     }
+
+
+
+
