@@ -33,3 +33,11 @@ Only tested for Steam version of BL3.
 
 TO DO: Give it a basic GUI || Build menu to select which save game to restore || Optimize Code
 
+
+
+NOTE: For this script to run correctly in these early phases of development, you may have to open a separate Powershell window as Administrator, and run the following:
+
+Set-ExecutionPolicy Unrestricted
+
+
+...And then try running this script again. 
