@@ -5,7 +5,7 @@ Super basic, rough draft, unoptimized, hacked together Powershell 5 script for a
 
 Created to help with Save Game corruption that was causing lost characters. 
 
-Works for default save game directory [C:\Users\username\Documents\My Games\Borderlands 3\Saved\Save Games] 
+Works for default save game directory [C:\Users\username\Documents\My Games\Borderlands 3\Saved\SaveGames] 
 Backs up to [C:\Users\username\Documents\BL3 Backups]
 
 Creates a new ZIP archive of the entire Save Games directory every 15 minutes. 
